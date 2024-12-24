@@ -30,6 +30,10 @@ public class App {
                 int id = scanner.nextInt();
                 scanner.nextLine();
 
+                System.out.println("Digite o valor de aluguel/dia do livro: ");
+                double preco = scanner.nextDouble();
+                scanner.nextLine();
+
                 System.out.println("Digite o titulo: ");
                 String titulo = scanner.nextLine();
 
@@ -40,7 +44,8 @@ public class App {
                 System.out.println("Digite o nome do autor: ");
                 String nomeAutor = scanner.nextLine();
 
-                biblioteca.adicionarLivro(id, titulo, idAutor, nomeAutor);
+
+                biblioteca.adicionarLivro(id, preco, titulo, idAutor, nomeAutor);
             } else if (opcao == 3) {
                 System.out.println("###### Alugar livro ######");
 
@@ -49,8 +54,11 @@ public class App {
                 scanner.nextLine();
                 System.out.println("Digite o nome do cliente que quer alugar: ");
                 String nome = scanner.nextLine();
+                System.out.println("Quantos dias quer alugar o livro? ");
+                int dias = scanner.nextInt();
+                scanner.nextLine();
 
-                biblioteca.alugarLivro(id, nome);
+                biblioteca.alugarLivro(id, nome, dias);
 
             } else if (opcao == 4) {
                 System.out.println("###### Devolver livro ######");

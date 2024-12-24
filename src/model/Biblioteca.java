@@ -20,11 +20,11 @@ public class Biblioteca {
         }
     }
 
-    public void adicionarLivro(int id, String titulo, int idAutor, String nomeAutor) {
-        livros.add(new Livro(id, titulo, new Autor(idAutor, nomeAutor)));
+    public void adicionarLivro(int id,double preco, String titulo, int idAutor, String nomeAutor) {
+        livros.add(new Livro(id, preco, titulo, new Autor(idAutor, nomeAutor)));
     }
 
-    public void alugarLivro(int id, String nomeCliente) {
+    public void alugarLivro(int id, String nomeCliente, int dias) {
 
         // Buscar o livro pelo IDD
         Livro livro = null;
@@ -61,7 +61,7 @@ public class Biblioteca {
             clienteEncontrado.setLivro(livro);
         } else {
             //senao tiver cliente existente, cria um novo cliente!!
-            Cliente novoCliente = new Cliente(nomeCliente, livro);
+            Cliente novoCliente = new Cliente(nomeCliente, livro, dias);
             clientes.add(novoCliente);
         }
 
