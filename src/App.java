@@ -43,6 +43,7 @@ public class App {
                 biblioteca.adicionarLivro(id, titulo, idAutor, nomeAutor);
             } else if (opcao == 3) {
                 System.out.println("###### Alugar livro ######");
+
                 System.out.println("Digite o ID do livro que deseja alugar: ");
                 int id = scanner.nextInt();
                 scanner.nextLine();
@@ -53,11 +54,19 @@ public class App {
 
             } else if (opcao == 4) {
                 System.out.println("###### Devolver livro ######");
-                System.out.println("Digite o ID do livro que deseja devolver: ");
-                int id = scanner.nextInt();
-                scanner.nextLine();
 
-                biblioteca.devolverLivro(id);
+                System.out.println("Tem certeza que quer devolver o livro? ");
+                String confirmacao = scanner.nextLine();
+                
+                while (confirmacao.equals("sim")) {
+
+                    System.out.println("Digite o ID do livro que deseja devolver: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    biblioteca.devolverLivro(id);
+                    break;//parar o loop após confirmacação
+                }
 
             } else if (opcao == 5) {
                 System.out.println("###### Lista de clientes ######");
