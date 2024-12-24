@@ -44,28 +44,35 @@ public class App {
                 System.out.println("Digite o nome do autor: ");
                 String nomeAutor = scanner.nextLine();
 
-
                 biblioteca.adicionarLivro(id, preco, titulo, idAutor, nomeAutor);
             } else if (opcao == 3) {
                 System.out.println("###### Alugar livro ######");
 
-                System.out.println("Digite o ID do livro que deseja alugar: ");
-                int id = scanner.nextInt();
-                scanner.nextLine();
                 System.out.println("Digite o nome do cliente que quer alugar: ");
                 String nome = scanner.nextLine();
-                System.out.println("Quantos dias quer alugar o livro? ");
-                int dias = scanner.nextInt();
+
+                System.out.println("Digite quantos livros quer alugar: ");
+                int quantidadeLivros = scanner.nextInt();
                 scanner.nextLine();
 
-                biblioteca.alugarLivro(id, nome, dias);
+                for (int i = 0; i < quantidadeLivros; i++) {
+                    System.out.println("Digite o ID do livro que deseja alugar: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Quantos dias quer alugar o livro? ");
+                    int dias = scanner.nextInt();
+                    scanner.nextLine();
+
+                    biblioteca.alugarLivro(id, nome, dias);
+                }
 
             } else if (opcao == 4) {
                 System.out.println("###### Devolver livro ######");
 
                 System.out.println("Tem certeza que quer devolver o livro? ");
                 String confirmacao = scanner.nextLine();
-                
+
                 while (confirmacao.equals("sim")) {
 
                     System.out.println("Digite o ID do livro que deseja devolver: ");
@@ -73,7 +80,7 @@ public class App {
                     scanner.nextLine();
 
                     biblioteca.devolverLivro(id);
-                    break;//parar o loop após confirmacação
+                    break;// parar o loop após confirmacação
                 }
 
             } else if (opcao == 5) {

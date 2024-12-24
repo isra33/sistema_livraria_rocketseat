@@ -58,10 +58,11 @@ public class Biblioteca {
 
         // associando o livro ao cliente existenteie
         if (clienteEncontrado != null) {
-            clienteEncontrado.setLivro(livro);
+            clienteEncontrado.adicionarLivro(livro);
         } else {
             //senao tiver cliente existente, cria um novo cliente!!
-            Cliente novoCliente = new Cliente(nomeCliente, livro, dias);
+            Cliente novoCliente = new Cliente(nomeCliente,  dias);
+            novoCliente.adicionarLivro(livro);
             clientes.add(novoCliente);
         }
 
